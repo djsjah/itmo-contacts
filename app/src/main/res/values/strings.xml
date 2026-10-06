@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Voyager177</string>
+
+    <string name="contacts_permission_required">
+        Нет разрешения на чтение контактов
+    </string>
+
+    <plurals name="contacts_found">
+        <item quantity="one">Найден %1$d контакт</item>
+        <item quantity="few">Найдено %1$d контакта</item>
+        <item quantity="many">Найдено %1$d контактов</item>
+        <item quantity="other">Найдено %1$d контактов</item>
+    </plurals>
+</resources>
