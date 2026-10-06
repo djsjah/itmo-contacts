@@ -60,6 +60,11 @@ fun ContactsScreen(
         ).show()
     }
 
+    if (contacts.isEmpty()) {
+        EmptyContactsMessage()
+        return
+    }
+
     ContactsList(
         contacts = contacts,
         onContactClick = {
@@ -77,6 +82,18 @@ private fun PermissionRequiredMessage() {
             .padding(16.dp)
     ) {
         Text(text = stringResource(R.string.contacts_permission_required))
+    }
+}
+
+@Composable
+private fun EmptyContactsMessage() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .safeDrawingPadding()
+            .padding(16.dp)
+    ) {
+        Text(text = stringResource(R.string.no_contacts_found))
     }
 }
 
@@ -113,15 +130,7 @@ private fun ContactItem(contact: Contact, onClick: () -> Unit) {
                 vertical = 10.dp
             )
     ) {
-        Text(
-            text = contact.name,
-            fontSize = 22.sp,
-            fontWeight = FontWeight.Bold
-        )
-
-        Text(
-            text = contact.phoneNumber,
-            fontSize = 16.sp
-        )
+        Text(text = contact.name, fontSize = 22.sp, fontWeight = FontWeight.Bold)
+        Text(text = contact.phoneNumber, fontSize = 16.sp)
     }
 }
